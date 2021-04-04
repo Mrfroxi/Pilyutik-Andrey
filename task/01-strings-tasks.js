@@ -38,7 +38,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-    throw new Error('Not implemented');
+    return value.length
 }
 
 /**
@@ -55,7 +55,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-    throw new Error('Not implemented');
+        return `Hello, ${firstName} ${lastName}!`
 }
 
 /**
@@ -68,9 +68,12 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, John Doe!' => 'John Doe'
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
-function extractNameFromTemplate(value) {
-    throw new Error('Not implemented');
-}
+ function extractNameFromTemplate(value) {
+    let arr = value.split(' ' , 3);
+    let dos = arr[2].substring(0 ,arr[2].length - 1)
+    let sum = arr[1] +" " +  dos;
+   return sum ;
+  }
 
 
 /**
