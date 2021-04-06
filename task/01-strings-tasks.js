@@ -132,7 +132,7 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-    // return str.replace(value , '' );
+    return str.replace(value , '' );
 }
 
 /**
@@ -147,7 +147,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-    // return str.split('').map(a =>(a== '<' || a=='>' ? '': a )).join('');
+    return str.split('').map(a =>(a== '<' || a=='>' ? '': a )).join('');
 }
 
 
