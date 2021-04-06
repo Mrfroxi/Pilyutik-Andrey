@@ -203,13 +203,13 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    // let realwidth = width-2;
-    // let realheight = height-2;
-    // const TRAIT_WIDTH = '─' ;
-    // const TRAIT_HEIGHT = '│';
-    // let Startbox = TRAIT_WIDTH.repeat(realwidth);
-    // let FirstHeight = (TRAIT_HEIGHT + ' '.repeat(realwidth) + TRAIT_HEIGHT +'\n').repeat(realheight);
-    // return '┌' +Startbox + '┐\n' + FirstHeight+ "└" + Startbox + '┘\n' ;
+    let realwidth = width-2;
+    let realheight = height-2;
+    const TRAIT_WIDTH = '─' ;
+    const TRAIT_HEIGHT = '│';
+    let Startbox = TRAIT_WIDTH.repeat(realwidth);
+    let FirstHeight = (TRAIT_HEIGHT + ' '.repeat(realwidth) + TRAIT_HEIGHT +'\n').repeat(realheight);
+    return '┌' +Startbox + '┐\n' + FirstHeight+ "└" + Startbox + '┘\n' ;
 }
 
 
