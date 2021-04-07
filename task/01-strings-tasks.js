@@ -229,8 +229,20 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+    function localcomparison (str){
+        if(str == ' '){
+          return ' '
+        }else if(str == '?'){
+            return '?'
+        }
+        else {
+        return str< 'n' ? +13 : -13;
+        }
+    }
+    const ROT13 = str => str.split('').map(letter => String.fromCharCode((letter.charCodeAt(0)+(localcomparison(letter.toLowerCase())) ))).join('');
+    return ROT13(str);
 }
+
 
 /**
  * Returns true if the value is string; otherwise false.
@@ -246,7 +258,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    throw new Error('Not implemented');
+   return ( value instanceof String) || (typeof value === 'string');
 }
 
 
