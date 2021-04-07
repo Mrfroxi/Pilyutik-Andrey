@@ -239,7 +239,7 @@ function encodeToRot13(str) {
         return str< 'n' ? +13 : -13;
         }
     }
-    const ROT13 = str => str.split('').map(letter => String.fromCharCode((letter.charCodeAt(0)+(localcomparison(letter.toLowerCase())) ))).join('');
+    const ROT13 = str => str.split('').map( letterROT13 => String.fromCharCode(( letterROT13.charCodeAt(0)+( localcomparison(letterROT13.toLowerCase())) ))).join('');
     return ROT13(str);
 }
 
@@ -287,7 +287,7 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+    return '♣♦♥♠'.indexOf(value[value.length-1])*13  + 'A234567891JQK'.indexOf(value.slice(0,1));
 }
 
 
