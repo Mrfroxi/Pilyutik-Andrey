@@ -82,7 +82,7 @@ function timeSpanToString(startDate, endDate) {
    let mins = Math.floor(timespan / (1000 *60)%60);
    var hours = Math.floor(timespan / (1000 * 60 * 60)%24);
    var seconds = Math.floor(timespan / (1000)%60);
-   return `${hours}:${mins}:${seconds}.${mls}`;
+   return `${hours}:${mins}:${seconds}.${mls}` ;
 }
 
 
