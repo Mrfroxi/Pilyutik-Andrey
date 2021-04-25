@@ -77,12 +77,13 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-   let timespan = endDate.getTime() - startDate.getTime()
-   let mls = Math.floor((timespan % 1000) / 100)
-   let mins = Math.floor(timespan / (1000 *60)%60);
-   var hours = Math.floor(timespan / (1000 * 60 * 60)%24);
-   var seconds = Math.floor(timespan / (1000)%60);
-   return `${hours}:${mins}:${seconds}.${mls}` ;
+   // let timespan = endDate.getTime() - startDate.getTime()
+   // let mls = Math.floor((timespan % 1000) / 100)
+   // let mins = Math.floor(timespan / (1000 *60)%60);
+   // var hours = Math.floor(timespan / (1000 * 60 * 60)%24);
+   // var seconds = Math.floor(timespan / (1000)%60);
+   // return `${hours}:${mins}:${seconds}.${mls}` ;
+   return new Date(endDate - startDate).toISOString().substring(11, 23);
 }
 
 
@@ -100,7 +101,13 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 function angleBetweenClockHands(date) {
-    throw new Error('Not implemented');
+   var mm = date.getUTCMinutes();
+   var hh = date.getUTCHours()>=12?date.getUTCHours()-12:date.getUTCHours();
+   var mmAngle=6*mm;
+   var hhAngle=30*hh+0.5*mm;
+   var angle=Math.abs(mmAngle-hhAngle);
+   angle=Math.min(angle,360-angle);
+   return Math.PI*angle/180;
 }
 
 
