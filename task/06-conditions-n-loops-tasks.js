@@ -373,9 +373,26 @@ function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
 function getCommonDirectoryPath(pathes) {
-    throw new Error('Not implemented');
+    var u = pathes.join();
+    var u2 = u.split(/[\\\/]/);
+    let map = {};
+    let result = [];
+    for (var i = 0, j = u2.length; i < j; i++) {
+      map[u2[i]] = (map[u2[i]] || 0) + 1;
+    }
+    let o = Object.keys(map);
+    if (o.filter((k) => map[k] === pathes.length)) {
+      let m = o.filter((k) => map[k] === pathes.length).toString();
+      let p = /${m}/;
+      let w = p.replace(",", "/");
+      return w;
+    } else if (o.filter((k) => map[k] < pathes.length)) {
+      let m = o.filter((k) => map[k] < pathes.length).toString();
+      let p = "";
+      return p;
+    }
 }
-
+co
 
 /**
  * Returns the product of two specified matrixes.
